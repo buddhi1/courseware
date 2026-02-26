@@ -3,7 +3,7 @@
   display: block;
   padding: 0%;
   margin: 0%;
-  max-width: 99%;
+  max-width: 100%;
 }
 
 .App-logo {
@@ -190,4 +190,261 @@
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Wordpress styles */
+/* Header Styles */
+.navBar{
+ filter: drop-shadow(0px 0px 5px #497eac);
+}
+
+
+.wp-header-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #15254c;
+  /* gap: 5px; */
+  /* margin: 0px auto; */
+  /* margin-left: auto;
+  margin-right: auto; */
+ 
+}
+
+.wp-header-container a{
+  
+}
+.wp-navigation-container{
+  display: flex;
+
+  /* padding: 0px 15px; */
+  margin-left: -15px;
+  list-style: none;
+  gap: 40px;
+
+}
+.wp-navigation-container li{
+  display: flex;
+  
+}
+.wp-navigation-container li a{
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+
+.wp-nav-item{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.wp-nav-arrow{
+  margin-left: 6px;
+}
+
+.wp-logo-header{
+
+  width: 80px;
+  height: auto;
+  display: block;
+  margin-left: 22px;
+
+}
+
+/* Footer Styles */
+
+/* Temporary solution just to see footer for now */
+div.MuiDrawer-paper{
+  position: unset;
+}
+
+.wp-footer-container{
+  display: flex;
+  flex-direction: column; 
+  /* justify-content: space-between; */
+  /* align-items:center; */
+  width: 100%;
+  background-color: #15254c;
+  padding-top: 104px;
+  
+}
+
+.wp-footer-container hr{
+  border: none;
+  border-top: 1px solid #ffffff;
+  margin: 8px auto 8px auto;
+  width: 100%;
+  
+  max-width: 1290px;
+
+}
+
+.wp-footer{
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  align-items: flex-start;
+  padding: 0px 32px;
+  margin-bottom: 32px;
+  /* width: 100%; */
+}
+
+.wp-footer-info-container{
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+  /* gap: 10px; */
+  flex-basis: 50%;
+  padding-bottom: 40px;
+}
+
+.wp-footer-info-container p{
+  color: white;
+  font-size: 18px;
+  margin: 16px 32px 24px 0px ;
+  text-align: start ;
+
+  
+  
+}
+
+
+
+.wp-footer-nav-container{
+  display: flex;
+  flex-direction: row;
+  /* align-items: flex-start; */
+  gap: 36px;
+  width: 50%;
+}
+
+.wp-footer-nav-container .footer-nav-item{
+  flex-basis: 25%;
+}
+
+.wp-footer-nav-container p{
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0px 0px 24px 0px;
+  text-align: left;
+}
+
+.wp-footer-nav-container ul{
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  font-weight: 500;
+  list-style: none;
+  letter-spacing: 1px;
+  gap: 16px;
+  padding: 0px;
+  /* text-align: left; */
+  /* margin: 0px; */
+}
+
+
+
+.wp-logo-footer{
+  width: 110px;
+  height: auto;
+  display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* WP Header Styles */
+/* Default: hide submenu */
+.wp-block-navigation-submenu > .wp-block-navigation__submenu-container {
+  display: none;
+}
+
+/* When open: show submenu */
+.wp-block-navigation-submenu.is-open > .wp-block-navigation__submenu-container {
+  display: block;
+}
+
+/* Closed state */
+.wp-block-navigation__container.wp-block-navigation .has-child .wp-block-navigation__submenu-container.wp-block-navigation-submenu{
+  max-height: 0px;
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition: opacity 1.75s ease, transform 1.5s ease, max-height 1.5s ease ;
+}
+
+/* Open state */
+.wp-block-navigation .has-child 
+.wp-block-navigation-submenu__toggle[aria-expanded="true"]
+~ ul.wp-block-navigation__submenu-container {
+  max-height: 600px;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/*Nav-menu Styles*/
+
+
+.wp-block-navigation-item__label:hover{
+ background: #ddedfb;
+ color:black;
+ border-radius: 8px;
+}
+
+/*Nav submenu*/
+.wp-block-navigation .has-child .wp-block-navigation-submenu__toggle[aria-expanded=true]~.wp-block-navigation__submenu-container.has-primary-800-background-color{
+
+ min-width: 250px;
+ border-radius: 1.5rem;
+ align-items: flex-start;
+ text-align: left; /*Not in WP*/
+}
+
+/*Middle layer*/
+.wp-block-navigation.wp-block-navigation__container .wp-block-navigation-item{
+ background-color: transparent;
+}
+
+/*Inner layer*/
+.wp-block-navigation .wp-block-navigation-item__content.wp-block-navigation-item__content{
+ background-color: transparent;
+}
+
+/* WP Footer Styles */
+.footer-info{
+  text-align: left;
+}
+.footer-nav h5, ul{
+  text-align: left;
 }

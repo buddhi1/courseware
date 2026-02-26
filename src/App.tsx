@@ -63,6 +63,8 @@ import {
 } from "./common/SnackbarBuilder";
 import { SimilarityWrapper } from './components/search/SimilarityWrapper';
 import { SimilaritySubcollection } from './components/search/SimilaritySubcollection';
+import WordPressHeader from './components/Wordpress/header/WordPressHeader';
+import WordPressFooter from './components/Wordpress/Footer/WordPressFooter';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -459,6 +461,9 @@ export const App: FunctionComponent<Props> = ({history, location}) => {
         <div className="App">
             <Switch>
                 <Route path="/">
+
+
+                    <WordPressHeader/>
                     <AppBar color="secondary" position="fixed">
                         <Grid container >
                             <Grid item>
@@ -1104,6 +1109,8 @@ export const App: FunctionComponent<Props> = ({history, location}) => {
             {/*handles cards for navigation*/}
 
             <BuildSnackbar {...appInfo.snackbar_info} clearProps={clearSnackbarProps} />
+
+            <WordPressFooter/>
 
         </div>
     );
