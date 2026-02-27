@@ -23,7 +23,7 @@
 }
 
 .Login-Button {
-  marginLeft: 'auto'
+  margin-Left: 'auto'
 }
 
 .App-link {
@@ -223,9 +223,7 @@
  
 }
 
-.wp-header-container a{
-  
-}
+
 .wp-navigation-container{
   display: flex;
 
