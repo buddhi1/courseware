@@ -463,8 +463,9 @@ export const App: FunctionComponent<Props> = ({history, location}) => {
                 <Route path="/">
 
 
-                    <WordPressHeader/>
+                    
                     <AppBar color="secondary" position="fixed">
+                        <WordPressHeader/>
                         <Grid container >
                             <Grid item>
                                 <Button className={classes.margin} variant="contained" color="primary"

@@ -1,19 +1,36 @@
-
-import { query } from "express";
 import {NavData} from "./NavData";
 import { useState,useEffect,useRef } from "react";
 
 export default function WordPressHeader() {
 
   const [openDropdown, setOpenDropdown] = useState(null);
-  const dropdownRefs = useRef({});
-
-  // const navClick = document.querySelectorAll(".wp-nav-item");
+  const navRefs = useRef(null);
 
 
-  // navClick.addEventListener("click", (e) => {
-  //   console.log("clicked");
-  // })
+  function handleClick(id){
+    
+    setOpenDropdown(prev => prev === id ? null : id)
+  }
+
+    
+  useEffect(() => {
+
+    if(openDropdown === null) return;
+
+    const handleOutsideClick = (event) => {
+      if (!navRefs.current.contains(event.target)) {
+        setOpenDropdown(null);
+      }
+    };
+
+    document.addEventListener("click", handleOutsideClick);
+
+    return() =>{
+        document.removeEventListener("click", handleOutsideClick);
+    };
+    
+  }, [openDropdown]);
+
 
   return (
     <div className="wp-header-container navBar">
@@ -23,36 +40,17 @@ export default function WordPressHeader() {
           <img className="wp-logo-header" src="https://dev.cdercenter.org/wp-content/uploads/2025/10/CDER-Logo.png" alt="CDER Logo"/>
         </a>
       </div>
-        <nav>
-            <ul className="wp-navigation-container">
-
-                {
-                  NavData.map((item) => (
-
-                      <li className="wp-nav-item" key={item.id}>
-
-                        <div style={{fontSize: 24}}>{item.title}
-
-                        <svg className="wp-nav-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false">
-                          <path  d="M1.50002 4L6.00002 8L10.5 4"  
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round">  
-                          </path>
-                        </svg>
-
-                        </div>
-
-                      </li>
-
-                    )
-                  )
-                }
-
-                {/* <li className="wp-nav-item">
-                  <div style={{fontSize: 24}}>About CDER 
-                  <svg className="wp-nav-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false">
+      <nav ref={navRefs}>
+        <ul className="wp-navigation-container">
+          {
+            NavData.map((item) => (
+              <li className="wp-nav-item" key={item.id}>
+                <div 
+                  style={{fontSize: 24}} 
+                  onClick={() => handleClick(item.id)}
+                >
+                  {item.title}
+                  <svg className={`wp-nav-arrow ${openDropdown === item.id ? "rotated" : ""}`} xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false">
                     <path  d="M1.50002 4L6.00002 8L10.5 4"  
                       stroke="currentColor"
                       stroke-width="1.5"
@@ -60,51 +58,22 @@ export default function WordPressHeader() {
                       stroke-linejoin="round">  
                     </path>
                   </svg>
-                  </div>
-                </li>
+                  
 
-                <li className="wp-nav-item">
-                  <div style={{fontSize: 24}}>Advancing PDC
-                    <svg className="wp-nav-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false">
-                      <path d="M1.50002 4L6.00002 8L10.5 4"  
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round">  
-                      </path>
-                    </svg>
-                  </div>
-                </li>
+                </div>
+                
+                {openDropdown === item.id && <div className="wp-nav-dropDown">Inside of {item.title}</div>}
 
-                <li className="wp-nav-item">
-                  <div style={{fontSize: 24}}>Conference Workshops
-                    <svg className="wp-nav-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false">
-                      <path d="M1.50002 4L6.00002 8L10.5 4"  
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round">  
-                      </path>
-                    </svg>
-                  </div>
-                </li>
+              </li>
 
-                <li className="wp-nav-item">
-                  <div style={{fontSize: 24}}>Community Resources
-                    <svg className="wp-nav-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false">
-                      <path d="M1.50002 4L6.00002 8L10.5 4"  
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round">  
-                      </path>
-                    </svg>
-                  </div>
-                </li> */}
+              )
+            )
+          }
 
-            </ul>
-        </nav>
-
+        </ul>
+      </nav> 
+      {/* {console.log("openDropdown:", openDropdown)}           */}
     </div>
+    
   );
 }

@@ -249,10 +249,24 @@
   align-items: center;
   gap: 6px;
   cursor: pointer;
+  position: relative;
 }
 
 .wp-nav-arrow{
   margin-left: 6px;
+}
+.wp-nav-arrow.rotated{
+  transform: rotate(180deg);
+}
+
+.wp-nav-dropDown{
+  display: block;
+  position: absolute;
+  top: 40px;
+  background-color: #174370;
+  padding: 24px;
+  border-radius: 24px;
+  z-index: 1000;
 }
 
 .wp-logo-header{
