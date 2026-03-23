@@ -1,4 +1,4 @@
-import {NavData} from "./NavData";
+import {NavData} from "../NavData";
 import { useState,useEffect,useRef } from "react";
 
 export default function WordPressHeader() {
@@ -45,7 +45,8 @@ export default function WordPressHeader() {
           {
             NavData.map((item) => (
               <li className="wp-nav-item" key={item.id}>
-                <div 
+                <div
+                  className="wp-nav-item_title" 
                   style={{fontSize: 24}} 
                   onClick={() => handleClick(item.id)}
                 >
@@ -62,7 +63,19 @@ export default function WordPressHeader() {
 
                 </div>
                 
-                {openDropdown === item.id && <div className="wp-nav-dropDown">Inside of {item.title}</div>}
+                {openDropdown === item.id && item.submenu && 
+                
+                  <div className="wp-nav-dropDown">
+
+                    <ul>
+                      {item.submenu.map((subItem) => (
+                        <li className="wp-nav-sub_item" key={item.id}><a href={subItem.link}><span>{subItem.title}</span></a></li>
+
+                      ))}
+                    </ul>
+                  
+                  </div>
+                }
 
               </li>
 
@@ -72,7 +85,6 @@ export default function WordPressHeader() {
 
         </ul>
       </nav> 
-      {/* {console.log("openDropdown:", openDropdown)}           */}
     </div>
     
   );
