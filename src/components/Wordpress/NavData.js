@@ -26,8 +26,8 @@ export const NavData = [
                 link: "https://dev.cdercenter.org/jpdc-special-issues/"
             },
             {
-                title: "PDC Training Program",
-                link: "https://dev.cdercenter.org/pdc-training-program/"
+                title: "NSF Cyber Training Program",
+                link: "https://dev.cdercenter.org/cybertraining-programs/"
             },
             {
                 title: "Conference Presentations and Publications",

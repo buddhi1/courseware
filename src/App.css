@@ -209,7 +209,6 @@
  filter: drop-shadow(0px 0px 5px #497eac);
 }
 
-
 .wp-header-container{
   display: flex;
   justify-content: center;
@@ -278,6 +277,7 @@
   background-color: #174370;
   /* padding: 24px; */
   border-radius: 24px;
+  text-align: left;
 }
 .wp-nav-dropDown ul{
   padding: 0px;
@@ -394,6 +394,7 @@ div.MuiDrawer-paper{
 
 .wp-footer-nav-item{
   width: 25%;
+  text-align: left;
 }
 
 .wp-footer-nav-item li a{
@@ -418,7 +419,6 @@ div.MuiDrawer-paper{
 }
 
 
-
 .wp-sponsors{
   display: flex;
   justify-content: center;
@@ -431,80 +431,4 @@ div.MuiDrawer-paper{
   aspect-ratio: 1;
   object-fit: contain;
   margin: 0px 56px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* TEMPORARY */
-/* WP Header Styles */
-/* Default: hide submenu */
-.wp-block-navigation-submenu > .wp-block-navigation__submenu-container {
-  display: none;
-}
-
-/* When open: show submenu */
-.wp-block-navigation-submenu.is-open > .wp-block-navigation__submenu-container {
-  display: block;
-}
-
-/* Closed state */
-.wp-block-navigation__container.wp-block-navigation .has-child .wp-block-navigation__submenu-container.wp-block-navigation-submenu{
-  max-height: 0px;
-  opacity: 0;
-  transform: translateY(-6px);
-  pointer-events: none;
-  transition: opacity 1.75s ease, transform 1.5s ease, max-height 1.5s ease ;
-}
-
-/* Open state */
-.wp-block-navigation .has-child 
-.wp-block-navigation-submenu__toggle[aria-expanded="true"]
-~ ul.wp-block-navigation__submenu-container {
-  max-height: 600px;
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-
-
-/*Nav-menu Styles*/
-
-
-
-/*Nav submenu*/
-.wp-block-navigation .has-child .wp-block-navigation-submenu__toggle[aria-expanded=true]~.wp-block-navigation__submenu-container.has-primary-800-background-color{
-
- min-width: 250px;
- border-radius: 1.5rem;
- align-items: flex-start;
- text-align: left; /*Not in WP*/
-}
-
-/*Middle layer*/
-.wp-block-navigation.wp-block-navigation__container .wp-block-navigation-item{
- background-color: transparent;
-}
-
-/*Inner layer*/
-.wp-block-navigation .wp-block-navigation-item__content.wp-block-navigation-item__content{
- background-color: transparent;
-}
-
-/* WP Footer Styles */
-.footer-info{
-  text-align: left;
-}
-.footer-nav h5, ul{
-  text-align: left;
 }

@@ -17,8 +17,10 @@ export default function WordPressFooter() {
                 <div className="wp-footer-info-container">
 
                     <img className="wp-logo-footer" src="https://dev.cdercenter.org/wp-content/uploads/2025/10/CDER-Logo.png" alt="CDER Logo"/>
-                    <p style={{letterSpacing: 1}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque dictum cursus elit ac varius.
-                    Pellentesque feugiat sem ut elit laoreet, nec molestie ipsum vulputate. Sed id diam et arcu ultricies feugiat.
+                    <p style={{letterSpacing: 1}}>The NSF-supported Center for Parallel and Distributed Computing Curriculum Development and 
+                        Educational Resources (CDER) is dedicated to advancing PDC education worldwide. By developing flexible core curricula and 
+                        comprehensive instructional materials, facilitating global access to state-of-the-art hardware and software resources, and 
+                        organizing workshops and competitions, CDER empowers educators and students while driving the widespread adoption of parallel and distributed computing.
                     </p>
                     <img src={LinkedIn_Logo} alt="LinkedIn Logo" style={{height: 18,width: 18}}/>
 
