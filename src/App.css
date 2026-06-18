@@ -305,9 +305,9 @@
 /* Footer Styles */
 
 /* Temporary solution just to see footer for now */
-div.MuiDrawer-paper{
+/* div.MuiDrawer-paper{
   position: unset;
-}
+} */
 
 .wp-footer-container{
   display: flex;
@@ -431,4 +431,26 @@ div.MuiDrawer-paper{
   aspect-ratio: 1;
   object-fit: contain;
   margin: 0px 56px;
+}
+
+/* Add Author styles */
+/* .add-entry-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+} */
+
+.add-entry-paper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 16px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.entry-input{
+  width: 70%;
 }

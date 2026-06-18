@@ -166,6 +166,7 @@ export const Author: FunctionComponent<Props> = (
         <Divider />
         <List><div>
         <ListSubheader inset>Authoring</ListSubheader>
+        
           <ListItem button onClick={() => setIndex(1)} selected={selectedIndex === 1} component={Link} to='/material/create'>
             <ListItemIcon>
               <DashboardIcon />

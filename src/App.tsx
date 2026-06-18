@@ -63,8 +63,11 @@ import {
 } from "./common/SnackbarBuilder";
 import { SimilarityWrapper } from './components/search/SimilarityWrapper';
 import { SimilaritySubcollection } from './components/search/SimilaritySubcollection';
+
 import WordPressHeader from './components/Wordpress/header/WordPressHeader';
 import WordPressFooter from './components/Wordpress/Footer/WordPressFooter';
+import AddEntryPage from './components/Admin-sidebar/AddEntryPage';
+import TagTable from './components/TagTable';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -166,7 +169,8 @@ const createInitialAppEntity = (): AppEntity => {
     // @TODO if token is blacklisted, drop it
     let jwt = localStorage.getItem("access_token");
 
-    let api_url = process.env.REACT_APP_API_URL || "http://localhost:5000";
+    // let api_url = process.env.REACT_APP_API_URL || "http://localhost:5000";
+    let api_url = "http://localhost:5000";
     let searchapi_url = process.env.REACT_APP_SEARCHAPI_URL || "http://localhost:6000";
 
     if (typeof jwt === "string") {
@@ -463,9 +467,11 @@ export const App: FunctionComponent<Props> = ({history, location}) => {
                 <Route path="/">
 
 
-                    
-                    <AppBar color="secondary" position="fixed">
+                    {/* Temporarily change position from "fixed" to "relative" */}
+                    <AppBar color="secondary" position="relative">
+
                         <WordPressHeader/>
+
                         <Grid container >
                             <Grid item>
                                 <Button className={classes.margin} variant="contained" color="primary"
@@ -564,7 +570,7 @@ export const App: FunctionComponent<Props> = ({history, location}) => {
             <Grid container>
             <Grid item xs={2}>
             <Container className={classes.sidebar}>
-                <Sidebar listOne={listOne.map(function(a) {return a.id;})} compareListOne={comparisonListOne.map(function(a) {return a.id;})} listTwo={listTwo.map(function(a) {return a.id;})} user_id={appInfo.user_id} user_data={appInfo} currentLoc="materials" from="materials"/>
+                <Sidebar is_admin={appInfo.user_data?.role === "admin"} listOne={listOne.map(function(a) {return a.id;})} compareListOne={comparisonListOne.map(function(a) {return a.id;})} listTwo={listTwo.map(function(a) {return a.id;})} user_id={appInfo.user_id} user_data={appInfo} currentLoc="materials" from="materials"/>
             </Container>
             </Grid>
 
@@ -682,8 +688,11 @@ export const App: FunctionComponent<Props> = ({history, location}) => {
                     }
                     <Route path="/material/create" render={(route_props) => (
                         <Container maxWidth="md">
-                            <MaterialForm {...route_props} api_url={appInfo.api_url} searchapi_url={appInfo.searchapi_url}
-                                      force_user_data_reload={force_user_data_refresh}
+                            <MaterialForm 
+                                {...route_props} 
+                                api_url={appInfo.api_url}
+                                searchapi_url={appInfo.searchapi_url}
+                                force_user_data_reload={force_user_data_refresh}
                             />
                         </Container>
                     )}
@@ -712,6 +721,30 @@ export const App: FunctionComponent<Props> = ({history, location}) => {
                         </Container>
                     )}
                     />
+
+                    {/* Adds an entry to the database */}
+                    {/* {appInfo.user_data?.role === "admin" && 
+                        <Route
+                        path="/admin/add_entry"
+                        render={(route_props) => (
+                            <AddEntryPage
+                            {...route_props}
+                            api_url={appInfo.api_url}
+                            searchapi_url={appInfo.searchapi_url}
+                            />
+                        )}
+                        />
+                    } */}
+                    <Route
+                        path="/admin/add_entry"
+                        render={(route_props) => (
+                            <AddEntryPage
+                            {...route_props}
+                            api_url={appInfo.api_url}
+                            searchapi_url={appInfo.searchapi_url}
+                            />
+                        )}
+                        />
 
                     {/**
                         Because :id is a string, we need to use a switch to prevent the Overview from rendering
@@ -1110,7 +1143,7 @@ export const App: FunctionComponent<Props> = ({history, location}) => {
             {/*handles cards for navigation*/}
 
             <BuildSnackbar {...appInfo.snackbar_info} clearProps={clearSnackbarProps} />
-
+            <TagTable api_url={appInfo.api_url} />
             <WordPressFooter/>
 
         </div>

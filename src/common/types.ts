@@ -89,3 +89,30 @@ export interface OntologyData {
     instance_of: string;
     children: OntologyData[];
 }
+// Add Entry ------------------------------------------------
+export const AddEntryTypesArray = [
+    {
+        value: 'author',
+        label: 'Author',
+    },
+    {
+        value: 'language',
+        label: 'Language',
+    },
+    {
+        value: 'course',
+        label: 'Course',
+    },
+    {
+        value: 'ontology',
+        label: 'Ontology',
+    },
+    {
+        value: 'dataset',
+        label: 'Dataset',
+    },
+    {
+        value: 'topic',
+        label: 'Topic',
+    }
+]

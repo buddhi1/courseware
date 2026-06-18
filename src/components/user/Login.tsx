@@ -66,7 +66,9 @@ export const Login: FunctionComponent<LoginProps> = ({
     );
 
     async function onLogin() {
+        
         const url = api_url + "/login";
+
 
         const data = {"email": loginInfo.login, "password": loginInfo.password};
 
@@ -77,7 +79,9 @@ export const Login: FunctionComponent<LoginProps> = ({
         let server_fail = false;
         let cancel = false;
         try {
+            console.log("LOGIN URL:", url);
             postJSONData(url, data).then(resp => {
+                
                 console.log(resp);
                 if (resp === undefined) {
                     console.log("API SERVER ERROR");

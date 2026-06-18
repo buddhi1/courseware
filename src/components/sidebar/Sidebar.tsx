@@ -23,7 +23,9 @@ import ShowChartIcon from '@material-ui/icons/ShowChart';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import Collapse from '@material-ui/core/Collapse';
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import { SimilarityWrapper } from "../search/SimilarityWrapper";
+
 
 
 
@@ -133,6 +135,7 @@ interface Props {
  user_data: any,
  currentLoc: string,
  from: string,
+ is_admin: boolean,
 }
 
 export const Sidebar: FunctionComponent<Props> = (
@@ -144,6 +147,7 @@ export const Sidebar: FunctionComponent<Props> = (
     user_data,
     currentLoc,
     from,
+    is_admin,
   }
 ) => {
 
@@ -398,8 +402,43 @@ export const Sidebar: FunctionComponent<Props> = (
           }
           </div></List>
           <Divider />
-          <List><div>
 
+          {/* Admin Section */}
+          {/* {(user_id !== null) ?
+              <Divider />
+              :
+              <div></div>
+            } */}
+          
+          {/* {is_admin && (
+            <List><div>
+              <div>
+              <ListSubheader inset className={classes.ListSubheader}>Admin</ListSubheader>
+              <ListItem button onClick={() => setIndex(15)} selected={selectedIndex === 15} component={Link} to='/admin/add_entry'>
+                <ListItemIcon>
+                  <PersonAddIcon />
+                </ListItemIcon>
+                <ListItemText primary="Add Entry" />
+              </ListItem>
+              </div>
+            </div></List>
+          )} */}
+          <List><div>
+            <div>
+            <ListSubheader inset className={classes.ListSubheader}>Admin</ListSubheader>
+            <ListItem button onClick={() => setIndex(15)} selected={selectedIndex === 15} component={Link} to='/admin/add_entry'>
+              <ListItemIcon>
+                <PersonAddIcon />
+              </ListItemIcon>
+              <ListItemText primary="Add Entry" />
+            </ListItem>
+            </div>
+          </div></List>
+
+          
+          <Divider />
+
+          <List><div>
           {(false)?
           <ListSubheader inset className={classes.ListSubheader}>Searching</ListSubheader>
           :

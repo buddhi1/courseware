@@ -36,8 +36,8 @@ export default function WordPressHeader() {
     <div className="wp-header-container navBar">
 
       <div>
-        <a href="https://dev.cdercenter.org/">
-          <img className="wp-logo-header" src="https://dev.cdercenter.org/wp-content/uploads/2025/10/CDER-Logo.png" alt="CDER Logo"/>
+        <a href="https://cdercenter.org/">
+          <img className="wp-logo-header" src="https://cdercenter.org/wp-content/uploads/2025/10/CDER-Logo.png" alt="CDER Logo"/>
         </a>
       </div>
       <nav ref={navRefs}>

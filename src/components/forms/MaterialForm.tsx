@@ -439,6 +439,7 @@ export const MaterialForm: FunctionComponent<Props> = (
 
         const auth = {"Authorization": "bearer " + localStorage.getItem("access_token")};
 
+        
         return postJSONData(url, data, auth).then(resp => {
             let snackbar_info = {...formInfo.snackbar_info};
 
